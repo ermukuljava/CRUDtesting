@@ -1,0 +1,18 @@
+# PostgreSQL Configurations
+
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/setYourDB_Name
+    username: setYours
+    password: setYours
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+    show-sql: true
