@@ -39,7 +39,7 @@ public class EmployeeControllerTest {
     @Test
     public void createEmployeeTest() throws Exception{
         Mockito.when(employeeService.createEmployee(any(Employee.class))).thenReturn("Employee created successfully");
-        mockMvc.perform(post("/v1/api/employee/add")
+        mockMvc.perform(post("/v1/api/employees/add")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"employeeId\":1,\"employeeName\":\"Mukul\",\"city\":\"Farrukhabad\"}"))
                 .andExpect(status().isCreated())
@@ -49,7 +49,7 @@ public class EmployeeControllerTest {
     public void testGetEmployeeById() throws Exception {
         Mockito.when(employeeService.getEmployeeById(anyLong())).thenReturn(employee);
 
-        mockMvc.perform(get("/v1/api/employee/get/1"))
+        mockMvc.perform(get("/v1/api/employees/1"))
                 .andExpect(status().isFound())
                 .andExpect(jsonPath("$.employeeName").value("Mukul"))
                 .andExpect(jsonPath("$.city").value("Farrukhabad"));
@@ -58,7 +58,7 @@ public class EmployeeControllerTest {
     public void testUpdateEmployee() throws Exception {
         Mockito.when(employeeService.updateEmployee(anyLong(), any(Employee.class))).thenReturn("Employee updated successfully");
 
-        mockMvc.perform(put("/v1/api/employee/update/1")
+        mockMvc.perform(put("/v1/api/employees/update/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"employeeName\":\"Mukul\",\"city\":\"Farrukhabad\"}"))
                 .andExpect(status().isOk())
@@ -69,7 +69,7 @@ public class EmployeeControllerTest {
     public void testDeleteEmployee() throws Exception {
         Mockito.when(employeeService.deleteEmployee(anyLong())).thenReturn("Employee deleted successfully");
 
-        mockMvc.perform(delete("/v1/api/employee/delete/1"))
+        mockMvc.perform(delete("/v1/api/employees/delete/1"))
                 .andExpect(status().isOk())
                 .andExpect(content().string("Employee deleted successfully"));
     }

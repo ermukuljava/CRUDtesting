@@ -29,6 +29,5 @@ public class Department {
     private String departmentName;
 
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
-    @NotNull(message = "Atleast one employee needed in Department")
     private List<Employee> employeeList;
 }

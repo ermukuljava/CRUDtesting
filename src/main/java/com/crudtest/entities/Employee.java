@@ -33,6 +33,5 @@ public class Employee {
 
     @ManyToOne
     @JoinColumn(name = "departmentId", nullable = false)
-    @NotNull(message = "Department is mandatory")
     private Department department;
 }

@@ -1,11 +1,10 @@
 # PostgreSQL Configurations
 
-
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/setYourDB_Name
-    username: setYours
-    password: setYours
+    url: jdbc:postgresql://localhost:5432/CrudTest
+    username: put yours
+    password: put yours
 
   jpa:
     hibernate:
