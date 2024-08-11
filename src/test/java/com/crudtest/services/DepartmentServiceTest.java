@@ -43,10 +43,10 @@ public class DepartmentServiceTest {
     public void testCreateDepartment() {
         Mockito.when(departmentRepo.save(department)).thenReturn(department);
 
-        String result = departmentServiceImpl.createDepartment(department);
+        Optional<String> result = departmentServiceImpl.createDepartment(department);
 
         Mockito.verify(departmentRepo, Mockito.times(1)).save(department);
-        Assert.assertEquals("Department created successfully", result);
+        Assert.assertEquals(Optional.of("Department created successfully"), result);
     }
 
     @Test

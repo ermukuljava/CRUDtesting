@@ -9,6 +9,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/v1/api/departments")
@@ -23,8 +24,8 @@ public class DepartmentController {
 
     @PostMapping("/add")
     public ResponseEntity<String> createDepartment(@Valid @RequestBody Department department){
-        String response = departmentService.createDepartment(department);
-        return new ResponseEntity<>(response, HttpStatus.CREATED);
+        Optional<String> response = departmentService.createDepartment(department);
+        return new ResponseEntity<>(response.get(), HttpStatus.CREATED);
     }
     @GetMapping(path = "/{id}", produces = "application/json")
     public ResponseEntity<Department> getDepartmentById(@PathVariable Long id){

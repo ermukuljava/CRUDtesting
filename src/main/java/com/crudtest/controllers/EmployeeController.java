@@ -9,6 +9,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/v1/api/employees")
@@ -23,8 +24,8 @@ public class EmployeeController {
 
     @PostMapping("/add")
     public ResponseEntity<String> createEmployee(@Valid @RequestBody Employee employee){
-        String response = employeeService.createEmployee(employee);
-        return new ResponseEntity<>(response, HttpStatus.CREATED);
+        Optional<String> response = employeeService.createEmployee(employee);
+        return new ResponseEntity<>(response.get(), HttpStatus.CREATED);
     }
     @GetMapping(path = "/allEmployees", produces = "application/json")
     public ResponseEntity<List<Employee>> getAllEmployee(){

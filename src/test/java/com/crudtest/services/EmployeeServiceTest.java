@@ -47,9 +47,9 @@ public class EmployeeServiceTest {
     @Test
     public void testCreateEmployee(){
         Mockito.when(employeeRepo.save(employee)).thenReturn(employee);
-        String response = employeeServiceImpl.createEmployee(employee);
+        Optional<String> response = employeeServiceImpl.createEmployee(employee);
         Mockito.verify(employeeRepo, Mockito.times(1)).save(employee);
-        Assert.assertEquals("Employee details created successfully", response);
+        Assert.assertEquals(Optional.of("Employee details created successfully"), response);
     }
 
     @Test

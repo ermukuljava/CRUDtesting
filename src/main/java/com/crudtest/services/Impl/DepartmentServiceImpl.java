@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -24,9 +25,9 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public String createDepartment(Department department) {
+    public Optional<String> createDepartment(Department department) {
         departmentRepo.save(department);
-        return "Department created successfully";
+        return Optional.of("Department created successfully");
     }
     @Override
     public Department getDepartmentById(Long id) {

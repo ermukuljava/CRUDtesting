@@ -14,6 +14,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.Optional;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -38,7 +40,7 @@ public class EmployeeControllerTest {
     }
     @Test
     public void createEmployeeTest() throws Exception{
-        Mockito.when(employeeService.createEmployee(any(Employee.class))).thenReturn("Employee created successfully");
+        Mockito.when(employeeService.createEmployee(any(Employee.class))).thenReturn(Optional.of("Employee created successfully"));
         mockMvc.perform(post("/v1/api/employees/add")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"employeeId\":1,\"employeeName\":\"Mukul\",\"city\":\"Farrukhabad\"}"))

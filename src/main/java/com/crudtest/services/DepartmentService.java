@@ -4,11 +4,12 @@ import com.crudtest.entities.Department;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface DepartmentService {
 
-    public String createDepartment(Department department);
+    public Optional<String> createDepartment(Department department);
 
     public List<Department> getAllDepartments();
 

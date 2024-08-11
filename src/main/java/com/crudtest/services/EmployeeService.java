@@ -4,11 +4,12 @@ import com.crudtest.entities.Employee;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface EmployeeService {
 
-    public String createEmployee(Employee employee);
+    public Optional<String> createEmployee(Employee employee);
 
     public List<Employee> getAllEmployee();
 

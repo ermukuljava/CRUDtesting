@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 @Transactional
 @Slf4j
@@ -22,10 +24,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public String createEmployee(Employee employee) {
+    public Optional<String> createEmployee(Employee employee) {
         employeeRepo.save(employee);
         log.info("Employee saved successfully");
-        return "Employee details created successfully";
+        return Optional.of("Employee details created successfully");
     }
 
     @Override

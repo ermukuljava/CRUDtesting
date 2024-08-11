@@ -3,8 +3,8 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/CrudTest
-    username: put yours
-    password: put yours
+    username: postgres
+    password: root
 
   jpa:
     hibernate:

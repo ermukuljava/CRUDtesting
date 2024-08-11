@@ -14,6 +14,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.Optional;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -38,7 +40,7 @@ public class DepartmentControllerTest {
     }
     @Test
     public void createDepartmentTest() throws Exception{
-        Mockito.when(departmentService.createDepartment(any(Department.class))).thenReturn("Department created successfully");
+        Mockito.when(departmentService.createDepartment(any(Department.class))).thenReturn(Optional.of("Department created successfully"));
         mockMvc.perform(post("/v1/api/departments/add")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"departmentId\":1,\"departmentName\":\"HRDept\"}"))
